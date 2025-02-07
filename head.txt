@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wall Of Boredom</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Üdvözöllek a Wall of Boredom-on!</h1>
+    <div class="image-gallery">
+        <img src="images/image1.jpg" alt="Kép leírása" />
+        <img src="images/image2.jpg" alt="Kép leírása" />
+        <img src="images/image3.jpg" alt="Kép leírása" />
+    </div>
+</body>
+</html>
