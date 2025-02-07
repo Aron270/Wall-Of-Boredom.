@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wall of Boredom</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .upload-container {
+            margin-top: 50px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #008CBA;
+        }
+        input[type="file"] {
+            font-size: 16px;
+            padding: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #005f73;
+        }
+        .gallery {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .gallery img {
+            max-width: 300px;
+            margin: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Üdvözöllek a Wall of Boredom-on!</h1>
+        <div class="upload-container">
+            <h2>Kép feltöltése</h2>
+            <input type="file" id="imageUpload" />
+            <button onclick="uploadImage()">Feltöltés</button>
+        </div>
+
+        <div id="gallery" class="gallery">
+            <h2>Feltöltött képek:</h2>
+        </div>
+    </div>
+
+    <script>
+        // A feltöltött képek tárolása és megjelenítése
+        function uploadImage() {
+            const fileInput = document.getElementById("imageUpload");
+            const file = fileInput.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imageElement = document.createElement("img");
+                    imageElement.src = e.target.result;
+                    imageElement.alt = file.name;
+                    imageElement.style.maxWidth = "300px";
+                    imageElement.style.marginTop = "20px";
+                    
+                    const gallery = document.getElementById("gallery");
+                    gallery.appendChild(imageElement);
+                };
+                reader.readAsDataURL(file);
+            } else {
+                alert("Kérlek válassz ki egy képet.");
+            }
+        }
+    </script>
+
+</body>
+</html>
